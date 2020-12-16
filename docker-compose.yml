@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
   shiny:
-    container_name: shiny
+    container_name: alfie_shiny
     # To build the image locally, comment out "image" below, and uncomment
     # "build" and the lines indented under it.
     # image: rocker/shiny
@@ -18,13 +18,16 @@ services:
     # environment:
     #   - APPLICATION_LOGS_TO_STDOUT=false
     ports:
-      - '80:3838'
+      - '43551:3838'
     volumes:
       - 'shiny_logs:/var/log/shiny-server'
       # Comment the line below out for initial testing. With it commented out,
       # going to localhost:80 in one's web browser will show a "Welcome to
       # Shiny Server!" diagnostics page.
-      # - './mountpoints/apps:/srv/shiny-server'
+      #      - '/mountpoints/apps/example-app:/srv/shiny-server'
+      - './mountpoints/apps/tfwm-public-dashboard:/srv/shiny-server'
+      - 'shiny_apps:/srv/shiny-server
 
 volumes:
   shiny_logs:
+  shiny_apps:

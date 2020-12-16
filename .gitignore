@@ -1,4 +1,2 @@
 .directory
 mountpoints/apps/*
-!mountpoints/apps/index.html
-!mountpoints/apps/example-app
